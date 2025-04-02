@@ -5,14 +5,14 @@ const image = document.getElementById('imagediv')
 
 
   const searchSuperhero = () => {
-    let superHeroName = superheroSearch.value
-    fetch(`https://superheroapi.com/api.php/10223569763528853/search/${superHeroName}`) 
+    let superHeroIdentity = superheroSearch.value
+    fetch(`https://superheroapi.com/api.php/10223569763528853/search/${superHeroIdentity}`) 
       .then(response => response.json())
       .then(json => {
         console.log(json)
-        superHeroName.innerHTML = `${json.results[0].name}`
         image.innerHTML = `<img src="${json.results[0].image.url}" width=300 height=300/>`
-        superHeroName.innerHTML = `${json.results[0].name}`
+        superHeroName.innerHTML = `${json.results[1].name}`
+  
         power.innerHTML = `Power: ${json.results[0].powerstats.strength}`
       } )
   }
